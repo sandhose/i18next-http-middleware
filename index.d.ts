@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import * as fastify from 'fastify';
+// import * as fastify from 'fastify';
 import * as http from 'http'; 
 import * as http2 from "http2";
 import * as i18next from 'i18next';
@@ -8,7 +8,7 @@ import * as i18next from 'i18next';
 
 type HttpRequest = http.IncomingMessage | http2.Http2ServerRequest;
 
-export interface I18nextRequest {
+interface I18nextRequest {
   language: string;
   languages: string[];
   i18n: i18next.i18n;
@@ -21,9 +21,9 @@ declare global {
   }
 }
 
-declare module 'fastify' {
-  interface FastifyRequest<HttpRequest> extends I18nextRequest {}
-}
+// declare module 'fastify' {
+//   interface FastifyRequest<HttpRequest> extends I18nextRequest {}
+// }
 
 declare namespace i18nextHttpMiddleware {
 
@@ -54,7 +54,7 @@ declare namespace i18nextHttpMiddleware {
     nsParam?: string;
   }
 
-  export const plugin: fastify.Plugin<http.Server, http.IncomingMessage, http.ServerResponse, HandleOptions>;
+  // export const plugin: fastify.Plugin<http.Server, http.IncomingMessage, http.ServerResponse, HandleOptions>;
 
   export function handle(i18next: I18next, options?: HandleOptions): Handler;
   export function getResourcesHandler(i18next: I18next, options?: GetResourcesHandlerOptions): Handler;
