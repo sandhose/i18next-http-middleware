@@ -1,5 +1,5 @@
 {
-  "name": "i18next-http-middleware",
+  "name": "@sandhose/i18next-http-middleware",
   "version": "3.0.0",
   "private": false,
   "type": "module",
